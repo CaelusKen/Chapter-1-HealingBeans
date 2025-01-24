@@ -18,6 +18,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ClockDisplay } from "./clock-display";
+import GameSelector from "../games/game-toggle";
 
 export default function FocusSpace() {
   const {
@@ -115,15 +116,19 @@ export default function FocusSpace() {
 
         {/* Spotify Embed */}
         <div className="fixed bottom-4 left-4 w-80">
-          <iframe
-            src={currentPlaylist.url}
-            width="100%"
-            height="152"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            className="rounded-lg shadow-lg bg-background/80 backdrop-blur-sm"
-          />
+          <div className="flex items-end gap-4">
+              <iframe
+                src={currentPlaylist.url}
+                width="100%"
+                height="152"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                className="rounded-lg shadow-lg bg-background/80 backdrop-blur-sm"
+              />
+    
+              <GameSelector />
+          </div>
         </div>
       </div>
     </div>
