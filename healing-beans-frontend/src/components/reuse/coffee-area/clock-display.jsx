@@ -1,65 +1,64 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Play, Pause, Timer } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Play, Pause, Timer } from "lucide-react";
 
 export function ClockDisplay({
-  initialMinutes,
+  timeLeft,
   isActive,
   onToggle,
   onMinutesChange,
 }) {
-  const [timeLeft, setTimeLeft] = useState(initialMinutes * 60)
-  const [currentTime, setCurrentTime] = useState(new Date())
-  const [showTimerInput, setShowTimerInput] = useState(false)
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [showTimerInput, setShowTimerInput] = useState(false);
 
   // Update current time
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [])
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Timer countdown
   useEffect(() => {
-    let interval
+    let interval;
     if (isActive && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft((time) => time - 1)
-      }, 1000)
+        setTimeLeft((time) => time - 1);
+      }, 1000);
     } else if (timeLeft === 0) {
-      onToggle()
+      onToggle();
     }
-    return () => clearInterval(interval)
-  }, [isActive, timeLeft, onToggle])
+    return () => clearInterval(interval);
+  }, [isActive, timeLeft, onToggle]);
 
-  const minutes = Math.floor(timeLeft / 60)
-  const seconds = timeLeft % 60
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
 
   const formatDate = (date) => {
-    return date.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
-  }
+    return date.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
 
   const formatTime = (date) => {
-    return date.toLocaleTimeString('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true
-    })
-  }
+    return date.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    });
+  };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="fixed inset-0 flex items-center justify-center pointer-events-none"
@@ -75,9 +74,12 @@ export function ClockDisplay({
               exit={{ opacity: 0, y: -20 }}
               className="space-y-4"
             >
-              <h2 className="text-2xl font-semibold text-amber-200">Focus Time</h2>
+              <h2 className="text-2xl font-semibold text-amber-200">
+                Focus Time
+              </h2>
               <div className="text-7xl font-mono text-white tabular-nums">
-                {minutes.toString().padStart(2, "0")}:{seconds.toString().padStart(2, "0")}
+                {minutes.toString().padStart(2, "0")}:
+                {seconds.toString().padStart(2, "0")}
               </div>
             </motion.div>
           ) : (
@@ -105,7 +107,7 @@ export function ClockDisplay({
               type="number"
               min="1"
               max="60"
-              value={initialMinutes}
+              value={Math.floor(timeLeft / 60)}
               onChange={(e) => onMinutesChange(parseInt(e.target.value, 10))}
               className="w-20 bg-white/10 border-white/20 text-white text-center"
               placeholder="mins"
@@ -116,9 +118,10 @@ export function ClockDisplay({
             size="icon"
             onClick={() => {
               if (!isActive && !showTimerInput) {
-                setShowTimerInput(true)
+                setShowTimerInput(true);
               } else {
-                onToggle()
+                onToggle();
+                setShowTimerInput(false);
               }
             }}
             className="bg-white/10 border-white/20 hover:bg-white/20 transition-colors"
@@ -134,5 +137,5 @@ export function ClockDisplay({
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
