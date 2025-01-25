@@ -22,15 +22,15 @@ export const vfxOptions = [
     name: "Rain Overlay",
     enabled: false,
   },
-  {
-    id: "steam",
-    name: "Coffee Steam",
-    enabled: false,
-  },
+  // {
+  //   id: "steam",
+  //   name: "Coffee Steam",
+  //   enabled: false,
+  // },
   {
     id: "blur",
     name: "Soft Blur",
-    enabled: false,
+    enabled: true,
   },
 ];
 
@@ -38,7 +38,7 @@ export const playlists = [
   {
     id: "coffee-jazz",
     name: "Coffee Shop Jazz",
-    url: "https://open.spotify.com/embed/playlist/37i9dQZF1DX9wC1KY45plY?utm_source=generator",
+    url: "https://open.spotify.com/embed/playlist/5vVSfOsF8YRueAI1dOI0Lh?utm_source=generator&theme=0",
   },
   {
     id: "lofi-beats",
@@ -48,6 +48,21 @@ export const playlists = [
   {
     id: "acoustic-morning",
     name: "Acoustic Morning",
-    url: "https://open.spotify.com/embed/playlist/37i9dQZF1DX4E3UdUs7fUx?utm_source=generator",
+    url: "https://open.spotify.com/embed/playlist/37i9dQZF1DXdd3gw5QVjt9?utm_source=generator",
   },
+  {
+    id: "chill-cn",
+    name: "Chill - China Collection",
+    url: "https://open.spotify.com/embed/playlist/4EmrzUGgEq18fSUM86G4wb?utm_source=generator"
+  },
+  {
+    id: "chill-vn",
+    name: "Chill - Vietnam Collection",
+    url: "https://open.spotify.com/embed/playlist/7Ib0lAD83EY4UasjiBqQf5?utm_source=generator",
+  },
+  {
+    id: "chill-kr",
+    name: "Chill - Korea Collection",
+    url: "https://open.spotify.com/embed/playlist/1clPhc1uM7aaF6oiu3h31D?utm_source=generator",
+  }
 ];
