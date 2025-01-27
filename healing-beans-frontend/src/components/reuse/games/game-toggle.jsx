@@ -15,9 +15,9 @@ export default function GameSelector() {
   ]
 
   const gameUrls = {
-    sudoku: "http://localhost:3000/games/sudoku",
-    "tic-tac-toe": "http://localhost:3000/games/tic-tac-toe",
-    memory: "http://localhost:3000/games/memory-card",
+    sudoku: `${process.env.NEXTAPP_URL}/games/sudoku`,
+    "tic-tac-toe": `${process.env.NEXTAPP_URL}/games/tic-tac-toe`,
+    memory: `${process.env.NEXTAPP_URL}/games/memory-card`,
   }
 
   return (
