@@ -15,9 +15,9 @@ export default function GameSelector() {
   ]
 
   const gameUrls = {
-    sudoku: `${process.env.NEXTAPP_URL}/games/sudoku`,
-    "tic-tac-toe": `${process.env.NEXTAPP_URL}/games/tic-tac-toe`,
-    memory: `${process.env.NEXTAPP_URL}/games/memory-card`,
+    sudoku: `${process.env.NEXT_PUBLIC_APP_URL}/games/sudoku`,
+    "tic-tac-toe": `${process.env.NEXT_PUBLIC_APP_URL}/games/tic-tac-toe`,
+    memory: `${process.env.NEXT_PUBLIC_APP_URL}/games/memory-card`,
   }
 
   return (
